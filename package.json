@@ -1,0 +1,32 @@
+{
+  "name": "market-watchlist",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Smart Market Watchlist application monorepo",
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspaces",
+    "dev:backend": "npm run dev --workspace=backend",
+    "dev:frontend": "npm run dev --workspace=frontend",
+    "build": "npm run build --workspaces --if-present",
+    "db:init": "npm run db:init --workspace=backend",
+    "db:status": "npm run db:status --workspace=backend",
+    "db:inspect": "npm run db:inspect --workspace=backend",
+    "test": "npm run test --workspaces --if-present",
+    "test:backend": "npm run test --workspace=backend",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "market:random": "npm run market:random --workspace=backend --"
+  },
+  "keywords": [
+    "market-watchlist",
+    "monorepo",
+    "react",
+    "express",
+    "postgres"
+  ],
+  "author": "",
+  "license": "ISC"
+}
