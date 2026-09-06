@@ -1,12 +1,17 @@
-# Shared Contracts
+# Shared Contracts and Data Flow
 
-This directory is designated for shared TypeScript contracts, data schemas, and event definitions used across services (such as frontend, backend, and asynchronous workers).
+This document outlines the conventions and guidelines for shared contracts across the Smart Market Watchlist services.
 
-## Current Status (Phase 0)
+---
 
-In Phase 0, no market event schemas or domain entities are defined yet. This placeholder establishes the location where cross-component types and schemas will reside in subsequent phases.
+## Purpose
 
-## Architecture
-- Shared API request/response types
-- Market event classifications & attention payload definitions
-- Contract validation schemas
+Cross-component communication in the Smart Market Watchlist involves:
+1. **Synchronous HTTP APIs**: REST endpoints between React frontend and Express backend.
+2. **PostgreSQL Relational Storage**: Normalized schemas for user authentication, watchlists, market snapshots, and checkpoint watermarks.
+
+## Conventions for Shared Contracts
+
+- All shared types, interfaces, and schemas will be located under `shared/contracts/`.
+- Types should be defined using TypeScript and validated at boundaries.
+- Avoid circular dependencies between packages by importing contracts strictly into consumer packages (`backend/`, `frontend/`).

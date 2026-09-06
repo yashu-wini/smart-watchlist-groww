@@ -31,3 +31,15 @@ This document records the foundational architectural decisions made for the Smar
 ### Decision 5: Exclude External Market APIs and Real-Time Feeds in Phase 2
 **Context & Decision:** Exclude external market feeds and real-time streaming until the data model and core APIs are finalized.  
 **Reason:** Keeps the database foundation isolated, robust, and independently testable.
+
+---
+
+### Decision 6: On-Demand Checkpoint Watermarks (No Background Polling / WebSockets)
+**Context & Decision:** Implement "Since You Last Checked" semantics using explicit database transactions (`watchlist_check_state`) triggered on-demand by the user rather than background polling workers or WebSockets.  
+**Reason:** Eliminates battery drain, connection dropouts, and complex distributed state while aligning with the investor workflow of deliberate check-in moments.
+
+---
+
+### Decision 7: Dual-Source Frontend State Separation
+**Context & Decision:** Decouple `currentMarketData` (`GET /intelligence`) and `latestCheckResult` (`POST /check`) in frontend state.  
+**Reason:** Prevents subsequent market quote refreshes from clearing or overwriting newly detected attention alerts before the user performs another check.

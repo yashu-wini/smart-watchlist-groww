@@ -6,6 +6,17 @@ Instead of overwhelming investors with endless ticks and complex charts, Market 
 
 ---
 
+## Documentation
+
+For a detailed understanding of the project:
+
+- [Setup & Run Guide](docs/SETUP_AND_RUN.md) — local PostgreSQL setup, installation, testing and demo steps.
+- [Architecture](docs/ARCHITECTURE.md) — system architecture, database design, change detection, checkpoints and attention engine.
+- [Architectural Decisions](docs/decisions.md) — important technology and architecture decisions made during development.
+- [Shared Contracts](shared/contracts/README.md) — shared data flow and contract conventions.
+
+---
+
 ## Core Product Flow
 
 ```
